@@ -28,10 +28,17 @@ public class Course {
     private String title;
     private Integer credit;
 
-    /*@OneToOne(
+    @OneToOne(
             mappedBy = "course"
     )
     private CourseMaterial courseMaterial;
 
-    private Teacher teacher;*/
+    @ManyToOne(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name = "teacher_id",
+            referencedColumnName = "teacherId"
+    )
+    private Teacher teacher;
 }
